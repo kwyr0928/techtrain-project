@@ -1,18 +1,23 @@
+// import { useNavigate } from "react-router-dom";
 import "./App.css";
+import Header from "./Header";
 import Threads from "./Threads";
 
 function App() {
+  // const navigate = useNavigate()
+  // const handleForm = () => {
+  //     navigate('/Form')
+  // }
+  // const handleView = () => {
+  //     navigate('/View')
+  // }
+
+  
   return (
     <div>
-      <header>
-        <h1>掲示板</h1>
-        <a href="#">スレッドをたてる</a>
-      </header>
+      <Header />
       <main>
-      <div className="threads">
-          <h2>新着スレッド</h2>
-          <Threads />
-      </div>
+      <Threads />
       </main>
       <footer></footer>
     </div>
