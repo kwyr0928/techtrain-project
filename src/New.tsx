@@ -1,18 +1,17 @@
 import "./App.css";
 import Header from "./Header";
-import Threads from "./Threads";
+import Newthread from "./Newthread";
 
-function App() {
-  
+function New() {
   return (
     <div>
       <Header />
       <main>
-      <Threads />
+      <Newthread />
       </main>
       <footer></footer>
     </div>
   );
 }
 
-export default App;
+export default New;

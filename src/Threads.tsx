@@ -40,14 +40,12 @@ function Threads() {
   }, []);
 
   return (
-    <div>
-      <div className="threads">
+      <div className="comp-Threads">
         <h2>新着スレッド</h2>
         {threads.map((thread, index) => (
           <p key={index}>{thread}</p>
         ))}
       </div>
-    </div>
   );
 }
 
