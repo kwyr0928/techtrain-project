@@ -10,13 +10,13 @@ function Newthread() {
       <h2>スレッド新規作成</h2>
       <form>
         <input type="text" name="create" placeholder="スレッドタイトル" />
+        <div className="btn">
+          <a href="" onClick={handleApp}>
+            Topに戻る
+          </a>
+          <button>作成</button>
+        </div>
       </form>
-     <div className="btn">
-         <a href="" onClick={handleApp}>
-           Topに戻る
-         </a>
-         <button>作成</button>
-     </div>
     </div>
   );
 }

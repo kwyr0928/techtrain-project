@@ -71,3 +71,32 @@ border: none;
 border-radius: 10px;
 font-size: 1.2rem;
 }
+.comp-Posts {
+  width: 500px;
+  margin: 20px 0px 0px 100px;
+}
+.comp-Submit {
+ width: 300px;
+ float: right;
+ margin: 20px 100px 0px 0px;
+}
+.comp-Submit form {
+  display: flex;
+  flex-direction: column;
+}
+.comp-Submit textarea {
+  width: 300px;
+  height: 7rem;
+  border: none;
+  margin-bottom: 30px;
+  padding: 10px;
+  font-size: 1.0rem;
+}
+.comp-Submit button {
+background-color: lightpink;
+color: white;
+font-size: 1.4rem;
+padding: 10px 0px;
+border: none;
+border-radius: 10px;
+}

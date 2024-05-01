@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type Thread = {
   id: string;
@@ -7,19 +8,11 @@ type Thread = {
 };
 
 function Threads() {
-  const [threads, setThreads] = useState<string[]>([]);
-  //   useEffect(() => {
-  //     fetch("https://railway.bulletinboard.techtrain.dev/threads")
-  //       .then((res) => res.json())
-  //       .then((data: Thread[]) => {
-  //         setThreads(data.map((thread) => thread.title));
-  //       })
-  //       .catch((error) => {
-  //         console.log("fetchエラー" + error);
-  //       });
-  //     console.log("threads:", threads);
-  //   }, []);
-
+  const [threads, setThreads] = useState<Thread[]>([]);
+  const navigate = useNavigate();
+  const handlePost = (thread: Thread) => {
+    navigate(`/thread/${thread.id}`, { state: { thread: thread } });
+  };
   useEffect(() => {
     // GETリクエスト
     axios
@@ -30,8 +23,7 @@ function Threads() {
       })
       // 通信が成功したときに返ってくる
       .then((response: AxiosResponse<Thread[]>) => {
-        const data: Thread[] = response.data;
-        setThreads(data.map((thread) => thread.title));
+        setThreads(response.data);
       })
       // 通信が失敗したときに返ってくる
       .catch((error) => {
@@ -40,12 +32,14 @@ function Threads() {
   }, []);
 
   return (
-      <div className="comp-Threads">
-        <h2>新着スレッド</h2>
-        {threads.map((thread, index) => (
-          <p key={index}>{thread}</p>
-        ))}
-      </div>
+    <div className="comp-Threads">
+      <h2>新着スレッド</h2>
+      {threads.map((thread, index) => (
+        <p onClick={() => handlePost(thread)} key={index}>
+          {thread.title}
+        </p>
+      ))}
+    </div>
   );
 }
 
