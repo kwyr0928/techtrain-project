@@ -1,10 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // ページ遷移用
 
 function Newthread() {
   const navigate = useNavigate();
   const handleApp = () => {
-    navigate("/");
+    navigate("/"); // Top画面に戻る
   };
+
   return (
     <div className="comp-Newthread">
       <h2>スレッド新規作成</h2>

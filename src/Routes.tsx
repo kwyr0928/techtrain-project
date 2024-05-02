@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import App from "./App";
 import New from "./New";
 import Post from "./Post";
+import Top from "./Top";
 
 export const AppRoutes = () => {
   return (
@@ -9,7 +9,7 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/thread/new" element={<New />} />
       <Route path="/thread/:id" element={<Post />} />
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<Top />} />
     </Routes>
   );
 };

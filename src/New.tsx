@@ -7,9 +7,8 @@ function New() {
     <div>
       <Header />
       <main>
-      <Newthread />
+        <Newthread />
       </main>
-      <footer></footer>
     </div>
   );
 }

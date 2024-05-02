@@ -1,27 +1,18 @@
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom"; // ページ遷移用
 import "./App.css";
 import Header from "./Header";
-import Posts from "./Posts";
-
-type Thread = {
-  selectId: Thread;
-  id: string;
-  title: string;
-};
+import PostList from "./PostList";
 
 function Post() {
-  const location = useLocation();
-  const initialState = location.state as { thread: Thread };
-  const [selectId, setSelectId] = useState<Thread>(initialState.thread);
+  const location = useLocation(); // navigateの引数を取得
+  const { threadId, threadTitle } = location.state as { threadId: string; threadTitle: string };
 
   return (
     <div>
       <Header />
       <main>
-        <Posts selectId={ selectId } />
+      <PostList id={threadId} title={threadTitle} />
       </main>
-      <footer></footer>
     </div>
   );
 }
