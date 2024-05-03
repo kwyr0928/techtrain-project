@@ -5,13 +5,16 @@ import PostList from "./PostList";
 
 function Post() {
   const location = useLocation(); // navigateの引数を取得
-  const { threadId, threadTitle } = location.state as { threadId: string; threadTitle: string };
+  const { threadId, threadTitle } = location.state as {
+    threadId: string;
+    threadTitle: string;
+  };
 
   return (
     <div>
       <Header />
       <main>
-      <PostList id={threadId} title={threadTitle} />
+        <PostList id={threadId} title={threadTitle} />
       </main>
     </div>
   );
