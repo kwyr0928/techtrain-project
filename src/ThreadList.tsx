@@ -12,7 +12,9 @@ function ThreadList() {
   const [threads, setThreads] = useState<Thread[]>([]);
   const navigate = useNavigate();
   const handlePost = (thread: Thread) => {
-    navigate(`/thread/${thread.id}`, { state: { threadId: thread.id, threadTitle: thread.title } }); // スレッドページ stateでthread引数を設定
+    navigate(`/thread/${thread.id}`, {
+      state: { threadId: thread.id, threadTitle: thread.title },
+    }); // スレッドページ stateでthread引数を設定
   };
   useEffect(() => {
     axios
@@ -32,10 +34,9 @@ function ThreadList() {
       <h2>新着スレッド</h2>
       {threads.map(
         (
-          thread,
-          index // thread: Thread
+          thread // thread: Thread // Link key={thread.id} 第二引数消す
         ) => (
-          <p onClick={() => handlePost(thread)} key={index}>
+          <p onClick={() => handlePost(thread)} key={thread.id}>
             {thread.title}
           </p>
         )
