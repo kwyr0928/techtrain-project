@@ -36,8 +36,9 @@ header h1 {
   margin: 20px 0px;
 }
 .comp-ThreadList p {
+  color: black;
   width: 400px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   padding: 10px 0px 20px 10px;
   border: 1px solid black;
   background-color: white;

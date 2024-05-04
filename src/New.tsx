@@ -1,3 +1,4 @@
+// スレッド新規作成画面
 import "./App.css";
 import Header from "./Header";
 import Newthread from "./Newthread";

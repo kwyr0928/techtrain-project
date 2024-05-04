@@ -1,3 +1,4 @@
+// 投稿一覧ページ
 import axios, { AxiosResponse } from "axios"; // API取得
 import { useEffect, useRef, useState } from "react"; // hooks
 
@@ -8,10 +9,10 @@ type PostProps = {
 
 type Post = {
   threadId: string;
-  posts: Pos[];
+  posts: Detail[];
 };
 
-type Pos = {
+type Detail = {
   id: string;
   post: string;
 };
@@ -23,7 +24,7 @@ function PostList({ id, title }: PostProps) {
   const handleAdd = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.preventDefault(); // form送信によるリロードをキャンセル
     const newPostText = textareaRef.current?.value;
-    if (!newPostText) return; // テキストが空の場合は処理しない
+    if (!newPostText) return;
     axios
       .post(`https://railway.bulletinboard.techtrain.dev/threads/${id}/posts`, {
        post: newPostText,
@@ -42,11 +43,9 @@ function PostList({ id, title }: PostProps) {
           textareaRef.current.value = "";
         }
     })
-    
       .catch((error) => {
         console.log("fetchエラー" + error);
       });
-      
   };
 
   useEffect(() => {
@@ -65,9 +64,8 @@ function PostList({ id, title }: PostProps) {
       <h2 className="thread-title">{title}</h2>
       <div className="post-container">
         <div className="comp-PostList">
-          {postList.posts.map((pos, index) => {
-            console.log(postList);
-            return <p key={index}>{pos.post}</p>;
+          {postList.posts.map((detail, index) => { // index以外だとエラーになってしまう
+            return <p key={index}>{detail.post}</p>;
           })}
         </div>
         <div className="comp-Submit">

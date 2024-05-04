@@ -1,3 +1,4 @@
+//投稿一覧画面
 import { useLocation } from "react-router-dom"; // ページ遷移用
 import "./App.css";
 import Header from "./Header";

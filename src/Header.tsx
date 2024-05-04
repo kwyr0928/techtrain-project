@@ -1,3 +1,4 @@
+// ヘッダー
 import { useNavigate } from "react-router-dom"; // ページ遷移用
 
 function Header() {
